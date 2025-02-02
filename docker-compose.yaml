@@ -1,0 +1,74 @@
+services:
+
+    api-service:
+        image: pis-api-service:0.0.1
+        hostname: api-service
+        build: 
+            context: ./api-service
+            dockerfile: Dockerfile.api-sinatra.yaml
+        env_file:
+            - ./environment_var/env_api.env
+        ports:
+            - '4567:4567'
+        restart: always
+        networks:
+            network_cw_project:
+                ipv4_address: 172.20.0.10
+                aliases:
+                    - api-service-alias
+
+
+    db-service:
+        image: pis-db-ps:0.0.1
+        hostname: db-ps
+        build:
+            context: ./db
+            dockerfile: Dockerfile.postgres.yaml
+        env_file:
+            - ./environment_var/env_db.env
+        restart: always
+        networks:
+            network_cw_project:
+                ipv4_address: 172.20.0.11
+                aliases:
+                    - db-service-alias
+        volumes:
+            - ./db/data:/var/lib/postgresql/data
+
+
+    ror-service:
+        image: pis-ror-service:0.0.1
+        hostname: ror-service
+        volumes: 
+            - ./ROR-service:/rails
+        build:
+            context: ./ROR-service
+            dockerfile: Dockerfile.service.yaml
+        env_file:
+            - ./environment_var/env_ror.env
+        networks:
+            network_cw_project:
+                ipv4_address: 172.20.0.12
+                aliases:
+                    - ror-service-alias
+        ports: 
+            - '3000:3000'
+        depends_on:
+            - 'db-service'
+
+
+    redis:
+        image: redis:latest
+        hostname: redis-service
+        networks:
+            network_cw_project:
+                ipv4_address: 172.20.0.13
+                aliases:
+                    - redis-service-alias
+
+networks:
+    network_cw_project:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 172.20.0.0/16

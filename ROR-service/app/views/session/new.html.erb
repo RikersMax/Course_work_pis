@@ -1,0 +1,31 @@
+
+<% provide(:title_name, 'session') %>
+<% render_navbar %>
+
+<h1>Session#new</h1>
+<p>Find me in app/views/session/new.html.erb</p>
+
+<%= form_with(model: @user, method: 'POST', url: session_index_path, data: { turbo: false }) do |f| %>
+	<div class="form">
+		<div class="form-group">
+			<%= f.label(:email)  %>
+		</div>
+
+		<div class="form-group">
+			<%=f.text_field(:email, palaceholder: 'email', class: 'form-input')  %>
+		</div>
+
+		<div class="form-group">
+			<%= f.label(:password)  %>
+		</div>
+
+		<div class="form-group">
+			<%= f.password_field(:password, class: 'form-input')  %>
+		</div>
+
+		<div class="form-group">			
+			<%= f.submit('sign_up', class: "btn")  %>
+		</div>
+		
+	</div>
+<% end %>

@@ -1,0 +1,17 @@
+/api-service/storage/db.sqlite3
+
+/db/data*
+
+/ROR-service/log/*.log
+/ROR-service/tmp/log/*
+/ROR-service/tmp/cache/*
+/ROR-service/tmp/pids/*
+/ROR-service/tmp/sockets/*
+
+/ROR-service/db/schema.rb
+/ROR-service/config/master.key
+
+dump.rdb 
+ideas.txt
+
+# dump.rdb -- db redis

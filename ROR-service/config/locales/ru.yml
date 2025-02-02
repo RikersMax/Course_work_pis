@@ -1,0 +1,14 @@
+ru:
+  user:
+    drop_down_menu:
+      sign_up: 'Регистрация'
+      sign_in: 'Войти'
+      exit: 'Выйти'
+  nav_bar:
+    links:
+      1_link: '1 ссылка'
+      2_link: '2 ссылка'
+      3_link: '3 ссылка'
+      4_link: '4 ссылка'
+  name_page:
+    page_1: 'page_1'

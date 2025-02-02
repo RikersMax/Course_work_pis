@@ -1,0 +1,57 @@
+<%= provide(:nav_bar) do %>
+
+<article class="nav-bar-container">
+	<section class="nav-bar-logo">
+		<div class="nav-logo">
+			<%= link_to(root_path) do %>
+				<div id="container-logo">					
+					<%= image_tag('logo/logo.png', size: "50x50") %>
+					<div id="text-logo">
+						<span>Депозитный</span>
+						<span>Калькулятор</span>
+					</div>
+				</div>	
+			<% end %>										
+		</div>
+	</section>
+
+	<section class="nav-bar-links">
+		<div class="nav-links">
+			<ul>
+				<li><%= link_to(t('nav_bar.links.1_link'), user_deposits_path ) %></li>
+				<li><%= link_to(t('nav_bar.links.2_link'),  url: '#') %></li>				
+			</ul>
+			
+		</div>
+	</section>
+
+	<section class="nav-bar-login">
+		<div class="nav-login">
+			<% if user_signed_in? then %>
+			<div class="menu-user-name">
+			
+				<%= content_tag(:span, current_user.name, class: '') %>
+				<div class="dropdown-menu-user">
+					
+					<ul class="dropdown-menu-ul">
+						
+						<li><%= link_to(t('user.drop_down_menu.exit'), 
+							session_path(current_user.id), 
+							data: { turbo_method: :delete }
+							) %></li>
+						<hr style="width: 90%;">
+					</ul>
+				</div>
+			</div>
+			
+			<% else %>
+				<%= link_to(t('user.drop_down_menu.sign_up'),  new_user_path)  %>
+				<hr style="height: 50%; margin: 0 1em;">
+				<%= link_to(t('user.drop_down_menu.sign_in'),  new_session_path)  %>
+			<% end %>	
+		</div>
+	</section>
+</article>
+	
+
+<% end %>

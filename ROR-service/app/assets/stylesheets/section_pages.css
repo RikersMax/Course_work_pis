@@ -1,0 +1,20 @@
+/*head page*/
+
+.header-page-container {
+	display: flex;
+	justify-content: center;
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+
+.header-page-name {
+	font-size: 3em;
+}
+
+
+/* card categories */
+.container-all-card {
+	display: flex;
+	justify-content: center;
+
+}

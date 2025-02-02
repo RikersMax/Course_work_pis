@@ -1,0 +1,31 @@
+export PSQL_MY_CW_NAME="my_cw"
+export PSQL_MY_CW_PASS="qwerty"
+export WEB_DATA_BASE="web_cw"
+
+
+postgres docker
+
+POSTGRES_USER=my_cw
+POSTGRES_PASSWORD=qwerty
+POSTGRES_DB=web_cw
+
+
+sudo docker run -p 54320:5432 --name test-ps -e POSTGRES_PASSWORD=qwerty -e POSTGRES_USER=my_cw -e POSTGRES_DB=web_cw postgres:16.6
+
+
+================
+
+
+ENV POSTGRES_USER my_cw
+ENV POSTGRES_PASSWORD qwerty
+ENV POSTGRES_DB psi_cw
+
+
+
+
+
+
+======================
+
+
+! api => sudo docker run -p 4567:4567 api-sinatra:0.0.1

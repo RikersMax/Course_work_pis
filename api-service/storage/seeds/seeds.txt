@@ -1,0 +1,391 @@
+
+#sber
+
+require 'yaml'
+
+def api_json_sber
+  #"Deposit" => Пополнение
+  #"withdrawal" => снятие
+  
+  vklad_1_1 = {
+    "name" => "sber-vklad-the-best",
+    "title_vklad" => "Лучший %",
+    "rate" => 12.5,   
+    "minimum_currency" => 100000,
+    "month" => 1,
+    "Deposit" => false, 
+    "withdrawal" => false
+  }
+
+  vklad_1_2 = {
+    "name" => "sber-vklad-the-best",
+    "title_vklad" => "Лучший %",
+    "rate" => 12.5,   
+    "minimum_currency" => 100000,
+    "month" => 2,
+    "Deposit" => false, 
+    "withdrawal" => false
+  }
+
+  vklad_1_3 = {
+    "name" => "sber-vklad-the-best",
+    "title_vklad" => "Лучший %",
+    "rate" => 18.5,   
+    "minimum_currency" => 100000,
+    "month" => 3,
+    "Deposit" => false, 
+    "withdrawal" => false
+  }
+
+  vklad_1_4 = {
+    "name" => "sber-vklad-the-best",
+    "title_vklad" => "Лучший %",
+    "rate" => 18.5,   
+    "minimum_currency" => 100000,
+    "month" => 4,
+    "Deposit" => false, 
+    "withdrawal" => false
+  }
+
+  vklad_1_5 = {
+    "name" => "sber-vklad-the-best",
+    "title_vklad" => "Лучший %",
+    "rate" => 18.5,   
+    "minimum_currency" => 100000,
+    "month" => 6,
+    "Deposit" => false, 
+    "withdrawal" => false
+  }
+
+  vklad_2_1 = {
+    "name" => "sber-vklad-deposit",
+    "title_vklad" => "Накопительный счёт",
+    "rate" => 10,   
+    "minimum_currency" => 1,
+    "month" => 60,
+    "Deposit" => true, 
+    "withdrawal" => true
+  }
+
+  vklad_3_1 = {
+    "name" => "sber-vklad",
+    "title_vklad" => "СберВклад",
+    "rate" => 9.2,   
+    "minimum_currency" => 100000,
+    "month" => 1,
+    "Deposit" => true, 
+    "withdrawal" => false
+  }
+
+  vklad_3_2 = {
+    "name" => "sber-vklad",
+    "title_vklad" => "СберВклад",
+    "rate" => 9.2,   
+    "minimum_currency" => 100000,
+    "month" => 2,
+    "Deposit" => true, 
+    "withdrawal" => false
+  }
+
+  vklad_3_3 = {
+    "name" => "sber-vklad",
+    "title_vklad" => "СберВклад",
+    "rate" => 15.2,   
+    "minimum_currency" => 100000,
+    "month" => 3,
+    "Deposit" => true, 
+    "withdrawal" => false
+  }
+
+  vklad_3_4 = {
+    "name" => "sber-vklad",
+    "title_vklad" => "СберВклад",
+    "rate" => 15.2,   
+    "minimum_currency" => 100000,
+    "month" => 6,
+    "Deposit" => true, 
+    "withdrawal" => false
+  }
+
+  vklad_3_5 = {
+    "name" => "sber-vklad",
+    "title_vklad" => "СберВклад",
+    "rate" => 14.7,   
+    "minimum_currency" => 100000,
+    "month" => 12,
+    "Deposit" => true, 
+    "withdrawal" => false
+  }
+
+
+  arr = []
+
+  arr.push(
+    vklad_1_1, 
+    vklad_1_2, 
+    vklad_1_3, 
+    vklad_1_4, 
+    vklad_1_5, 
+    vklad_2_1, 
+    vklad_3_1, 
+    vklad_3_2, 
+    vklad_3_3, 
+    vklad_3_4, 
+    vklad_3_5
+    )
+  
+  return(arr)
+
+end
+
+#alfa
+
+
+def api_json_alfa
+  #"Deposit" => Пополнение
+  #"withdrawal" => снятие
+
+  
+  vklad_1_1 = {
+    "name" => "alfa-account",
+    "title_vklad" => "Альфа-Счёт",
+    "rate" => 20,
+    "minimum_currency" => 1,
+    "month" => 999,
+    "Deposit" => false, 
+    "withdrawal" => false
+  }
+
+  vklad_2_1 = {
+    "name" => "alfa-deposit",
+    "title_vklad" => "Альфа-Вклад",
+    "rate" => 18,
+    "minimum_currency" => 10000,
+    "month" => 3,
+    "Deposit" => true,
+    "withdrawal" => true
+  }
+
+  vklad_2_2 = {
+    "name" => "alfa-deposit",
+    "title_vklad" => "Альфа-Вклад",
+    "rate" => 19,
+    "minimum_currency" => 10000,
+    "month" => 4,
+    "Deposit" => true,
+    "withdrawal" => true
+  }
+
+  vklad_2_3 = {
+    "name" => "alfa-deposit",
+    "title_vklad" => "Альфа-Вклад",
+    "rate" => 20,
+    "minimum_currency" => 10000,
+    "month" => '6',
+    "Deposit" => true,
+    "withdrawal" => true
+  }
+
+  vklad_2_4= {
+    "name" => "alfa-deposit",
+    "title_vklad" => "Альфа-Вклад",
+    "rate" => 20,
+    "minimum_currency" => 10000,
+    "month" => 9,
+    "Deposit" => true,
+    "withdrawal" => true
+  }
+
+  vklad_2_5 = {
+    "name" => "alfa-deposit",
+    "title_vklad" => "Альфа-Вклад",
+    "rate" => 21.01,
+    "minimum_currency" => 10000,
+    "month" => 12,
+    "Deposit" => true,
+    "withdrawal" => true
+  }
+
+  vklad_2_6 = {
+    "name" => "alfa-deposit",
+    "title_vklad" => "Альфа-Вклад",
+    "rate" => 19.50,
+    "minimum_currency" => 10000,
+    "month" => 18,
+    "Deposit" => true,
+    "withdrawal" => true
+  }
+
+  vklad_2_7 = {
+    "name" => "alfa-deposit",
+    "title_vklad" => "Альфа-Вклад",
+    "rate" => 19,
+    "minimum_currency" => 10000,
+    "month" => 24,
+    "Deposit" => true,
+    "withdrawal" => true
+  }
+
+  vklad_2_8 = {
+    "name" => "alfa-deposit",
+    "title_vklad" => "Альфа-Вклад",
+    "rate" => 21,
+    "minimum_currency" =>  10000,
+    "month" => 36,
+    "Deposit" => true,
+    "withdrawal" => true
+  }
+
+  vklad_3_1 = {
+    "name" => "alfa-vklad-defend",
+    "title_vklad" => "Альфа-Вклад Пенсионный",
+    "rate" => 19.50,
+    "minimum_currency" => 10000,
+    "month" => 4,
+    "Deposit" => false,
+    "withdrawal" => false
+  }
+
+  vklad_3_2 = {
+    "name" => "alfa-vklad-defend",
+    "title_vklad" => "Альфа-Вклад Пенсионный",
+    "rate" => 20.50,
+    "minimum_currency" => 10000,
+    "month" => 6,
+    "Deposit" => false,
+    "withdrawal" => false
+  }
+
+  vklad_3_3 = {
+    "name" => "alfa-vklad-defend",
+    "title_vklad" => "Альфа-Вклад Пенсионный",
+    "rate" => 21.01,    
+    "minimum_currency" => 10000,
+    "month" => 12,
+    "Deposit" => false,
+    "withdrawal" => false
+  }
+
+  vklad_3_4 = {
+    "name" => "alfa-vklad-defend",
+    "title_vklad" => "Альфа-Вклад Пенсионный",
+    "rate" => 19.50,
+    "minimum_currency" => 10000,
+    "month" => 24,
+    "Deposit" => false,
+    "withdrawal" => false
+  }
+
+  vklad_3_5 = {
+    "name" => "alfa-vklad-defend",
+    "title-vklad" => "Альфа-Вклад Пенсионный",
+    "rate" => 21,
+    "minimum_currency" => 10000,
+    "month" => 36,
+    "Deposit" => false,
+    "withdrawal" => false
+  }
+
+  arr = []
+
+  arr.push(
+    vklad_1_1, 
+    vklad_2_1, 
+    vklad_2_2, 
+    vklad_2_3, 
+    vklad_2_4, 
+    vklad_2_5, 
+    vklad_2_6, 
+    vklad_2_7, 
+    vklad_2_8, 
+    vklad_3_1, 
+    vklad_3_2, 
+    vklad_3_3, 
+    vklad_3_4, 
+    vklad_3_5
+    )
+  return(arr)
+
+end
+
+
+#TBank
+
+def api_json_t_bank
+  #"Deposit" => Пополнение
+  #"withdrawal" => снятие
+
+  
+  vklad_1_1= {
+    "name" => "t-vklad",
+    "title-vklad" => "Вклад Т-банка",
+    "rate" => 16,
+    "minimum_currency" => 50000,
+    "month" => 2,
+    "Deposit" => true, 
+    "withdrawal" => true
+  }
+
+  vklad_1_2 = {
+    "name" => "t-vklad",
+    "title-vklad" => "Вклад Т-банка",
+    "rate" => 16.2,
+    "minimum_currency" => 50000,
+    "month" => 6,
+    "Deposit" => true, 
+    "withdrawal" => true
+  }
+
+  vklad_1_3 = {
+    "name" => "t-vklad",
+    "title-vklad" => "Вклад Т-банка",
+    "rate" => 14,
+    "minimum_currency" => 50000,
+    "month" => 9,
+    "Deposit" => true, 
+    "withdrawal" => true
+  }
+
+  vklad_1_4 = {
+    "name" => "t-vklad",
+    "title-vklad" => "Вклад Т-банка",
+    "rate" => 12.5,
+    "minimum_currency" => 50000,
+    "month" => 12,
+    "Deposit" => true, 
+    "withdrawal" => true
+  }
+
+  vklad_1_5 = {
+    "name" => "t-vklad",
+    "title-vklad" => "Вклад Т-банка",
+    "rate" => 10,
+    "minimum_currency" => 50000,
+    "month" => 18,
+    "Deposit" => true, 
+    "withdrawal" => true
+  }
+
+  arr = []
+
+  arr.push(vklad_1_1, vklad_1_2, vklad_1_3, vklad_1_4, vklad_1_5)
+  return(arr)
+
+
+end
+
+#puts api_json_t_bank.to_yaml
+
+#file = File.open('seeds.yaml', 'w')
+#file.write({'Sber_bank' => api_json_sber, 'Alfa_bank' => api_json_alfa, 'T_bank' => api_json_t_bank}.to_yaml)
+
+file = YAML.load_file('seeds.yaml')
+#file.readline {}
+
+file.each do |line| 
+  puts line
+end
+
+#file["Sber_bank"].each_with_index do |(k, v), i|
+#  puts v.inspect
+#end

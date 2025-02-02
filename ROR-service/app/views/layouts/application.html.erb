@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title_page(yield(:title_name))  %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="wrapper">        
+      <header>        
+        <%= yield(:nav_bar)  %>                
+      </header>
+
+      <main>
+        <%= render(partial: 'shared/message') if !flash.empty?  %>    
+        <%= yield %>
+      </main>
+
+      <footer class="footer-grid">
+        <%= render(partial: 'shared/footer') %>
+      </footer>
+    </div>
+  </body>
+</html>
