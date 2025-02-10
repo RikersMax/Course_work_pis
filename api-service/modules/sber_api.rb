@@ -7,7 +7,7 @@ class SberBank < BaseModule
 
   def initialize
     connect()
-    @name_table = 'SberBank'  
+    @name_table = 'Sber_bank'  
     create_table()
     init_version_table()
   end

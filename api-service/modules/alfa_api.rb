@@ -6,7 +6,7 @@ class AlfaBank < BaseModule
 
   def initialize
     connect
-    @name_table = 'AlfaBank'
+    @name_table = 'Alfa_bank'
     create_table()
     init_version_table()
   end

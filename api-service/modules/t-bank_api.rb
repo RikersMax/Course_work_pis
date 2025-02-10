@@ -7,7 +7,7 @@ class TBank < BaseModule
 
   def initialize
     connect()
-    @name_table = 'TBank'  
+    @name_table = 'T_Bank'  
     create_table()
     init_version_table()
   end

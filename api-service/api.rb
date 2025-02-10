@@ -1,3 +1,4 @@
+#bundle exec rackup --host 127.0.0.1 -p 4567
 require 'sinatra'
 require 'json'
 
@@ -12,6 +13,8 @@ sber = SberBank.new
 t_bank = TBank.new
 
 get "/" do
+  arr = ['list base requiest']
+=begin  
   if params.empty? then
     banks_version = [
       alfa.select_version,
@@ -21,10 +24,12 @@ get "/" do
     return(banks_version.to_json)
   else
     BaseModule.select_version_from_params(params).to_json
-  end 
+  end
+=end
+  return(arr.to_json)
 end
 
-get "/api/versions" do 
+get "/api/v1/versions" do 
   #http://127.0.0.1:4567/api/all?something = name_bank
 
   if params.empty? then
@@ -40,7 +45,7 @@ get "/api/versions" do
 
 end
 
-get "/api/all_deposits" do
+get "/api/v1/all_deposits" do
   result = {}
 
   bank_deposits = {    
@@ -53,19 +58,19 @@ get "/api/all_deposits" do
   result.to_json
 end
 
-get "/api/alfa" do 
+get "/api/v1/alfa" do 
   {alfa.name_table => alfa.select_data}.to_json
   #api_json_alfa.to_json
 end
 
 
-get "/api/sber" do 
+get "/api/v1/sber" do 
   {sber.name_table => sber.select_data}.to_json
   #api_json_sber.to_json
 end
 
 
-get "/api/t-bank" do 
+get "/api/v1/t-bank" do 
   {t_bank.name_table => t_bank.select_data}.to_json
   #api_json_t_bank.to_json
 end

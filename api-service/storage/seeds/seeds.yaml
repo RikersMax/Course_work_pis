@@ -1,76 +1,76 @@
 ---
 Sber_bank:
-- name: sber-vklad-the-best
+- group_name: sber-vklad-the-best
   title_vklad: Лучший %
   rate: 12.5
   minimum_currency: 100000
   month: 1
   deposit: false
   withdrawal: false
-- name: sber-vklad-the-best
+- group_name: sber-vklad-the-best
   title_vklad: Лучший %
   rate: 12.5
   minimum_currency: 100000
   month: 2
   deposit: false
   withdrawal: false
-- name: sber-vklad-the-best
+- group_name: sber-vklad-the-best
   title_vklad: Лучший %
   rate: 18.5
   minimum_currency: 100000
   month: 3
   deposit: false
   withdrawal: false
-- name: sber-vklad-the-best
+- group_name: sber-vklad-the-best
   title_vklad: Лучший %
   rate: 18.5
   minimum_currency: 100000
   month: 4
   deposit: false
   withdrawal: false
-- name: sber-vklad-the-best
+- group_name: sber-vklad-the-best
   title_vklad: Лучший %
   rate: 18.5
   minimum_currency: 100000
   month: 6
   deposit: false
   withdrawal: false
-- name: sber-vklad-deposit
+- group_name: sber-vklad-deposit
   title_vklad: Накопительный счёт
   rate: 10
   minimum_currency: 1
   month: 60
   deposit: true
   withdrawal: true
-- name: sber-vklad
+- group_name: sber-vklad
   title_vklad: СберВклад
   rate: 9.2
   minimum_currency: 100000
   month: 1
   deposit: true
   withdrawal: false
-- name: sber-vklad
+- group_name: sber-vklad
   title_vklad: СберВклад
   rate: 9.2
   minimum_currency: 100000
   month: 2
   deposit: true
   withdrawal: false
-- name: sber-vklad
+- group_name: sber-vklad
   title_vklad: СберВклад
   rate: 15.2
   minimum_currency: 100000
   month: 3
   deposit: true
   withdrawal: false
-- name: sber-vklad
+- group_name: sber-vklad
   title_vklad: СберВклад
   rate: 15.2
   minimum_currency: 100000
   month: 6
   deposit: true
   withdrawal: false
-- name: sber-vklad
+- group_name: sber-vklad
   title_vklad: СберВклад
   rate: 14.7
   minimum_currency: 100000
@@ -78,98 +78,98 @@ Sber_bank:
   deposit: true
   withdrawal: false
 Alfa_bank:
-- name: alfa-account
+- group_name: alfa-account
   title_vklad: Альфа-Счёт
   rate: 20
   minimum_currency: 1
   month: 999
   deposit: false
   withdrawal: false
-- name: alfa-deposit
+- group_name: alfa-deposit
   title_vklad: Альфа-Вклад
   rate: 18
   minimum_currency: 10000
   month: 3
   deposit: true
   withdrawal: true
-- name: alfa-deposit
+- group_name: alfa-deposit
   title_vklad: Альфа-Вклад
   rate: 19
   minimum_currency: 10000
   month: 4
   deposit: true
   withdrawal: true
-- name: alfa-deposit
+- group_name: alfa-deposit
   title_vklad: Альфа-Вклад
   rate: 20
   minimum_currency: 10000
   month: '6'
   deposit: true
   withdrawal: true
-- name: alfa-deposit
+- group_name: alfa-deposit
   title_vklad: Альфа-Вклад
   rate: 20
   minimum_currency: 10000
   month: 9
   deposit: true
   withdrawal: true
-- name: alfa-deposit
+- group_name: alfa-deposit
   title_vklad: Альфа-Вклад
   rate: 21.01
   minimum_currency: 10000
   month: 12
   deposit: true
   withdrawal: true
-- name: alfa-deposit
+- group_name: alfa-deposit
   title_vklad: Альфа-Вклад
   rate: 19.5
   minimum_currency: 10000
   month: 18
   deposit: true
   withdrawal: true
-- name: alfa-deposit
+- group_name: alfa-deposit
   title_vklad: Альфа-Вклад
   rate: 19
   minimum_currency: 10000
   month: 24
   deposit: true
   withdrawal: true
-- name: alfa-deposit
+- group_name: alfa-deposit
   title_vklad: Альфа-Вклад
   rate: 21
   minimum_currency: 10000
   month: 36
   deposit: true
   withdrawal: true
-- name: alfa-vklad-defend
+- group_name: alfa-vklad-defend
   title_vklad: Альфа-Вклад Пенсионный
   rate: 19.5
   minimum_currency: 10000
   month: 4
   deposit: false
   withdrawal: false
-- name: alfa-vklad-defend
+- group_name: alfa-vklad-defend
   title_vklad: Альфа-Вклад Пенсионный
   rate: 20.5
   minimum_currency: 10000
   month: 6
   deposit: false
   withdrawal: false
-- name: alfa-vklad-defend
+- group_name: alfa-vklad-defend
   title_vklad: Альфа-Вклад Пенсионный
   rate: 21.01
   minimum_currency: 10000
   month: 12
   deposit: false
   withdrawal: false
-- name: alfa-vklad-defend
+- group_name: alfa-vklad-defend
   title_vklad: Альфа-Вклад Пенсионный
   rate: 19.5
   minimum_currency: 10000
   month: 24
   deposit: false
   withdrawal: false
-- name: alfa-vklad-defend
+- group_name: alfa-vklad-defend
   title-vklad: Альфа-Вклад Пенсионный
   rate: 21
   minimum_currency: 10000
@@ -177,35 +177,35 @@ Alfa_bank:
   deposit: false
   withdrawal: false
 T_bank:
-- name: t-vklad
+- group_name: t-vklad
   title-vklad: Вклад Т-банка
   rate: 16
   minimum_currency: 50000
   month: 2
   deposit: true
   withdrawal: true
-- name: t-vklad
+- group_name: t-vklad
   title-vklad: Вклад Т-банка
   rate: 16.2
   minimum_currency: 50000
   month: 6
   deposit: true
   withdrawal: true
-- name: t-vklad
+- group_name: t-vklad
   title-vklad: Вклад Т-банка
   rate: 14
   minimum_currency: 50000
   month: 9
   deposit: true
   withdrawal: true
-- name: t-vklad
+- group_name: t-vklad
   title-vklad: Вклад Т-банка
   rate: 12.5
   minimum_currency: 50000
   month: 12
   deposit: true
   withdrawal: true
-- name: t-vklad
+- group_name: t-vklad
   title-vklad: Вклад Т-банка
   rate: 10
   minimum_currency: 50000

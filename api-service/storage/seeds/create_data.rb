@@ -1,7 +1,7 @@
 require 'sqlite3'
 require 'yaml'
 
-#db = SQLite3::Database.new('path')
+db = SQLite3::Database.new('../db.sqlite3')
 
 file = YAML.load_file('seeds.yaml')
 
@@ -10,7 +10,7 @@ def create_table(connect, name_table)
     connect.execute("create table if not exists 
       #{name_table} 
       (id integer primary key,
-      name text,
+      group_name text,
       title_vklad text,
       rate real,
       minimum_currency integer,      
@@ -20,12 +20,11 @@ def create_table(connect, name_table)
       check(deposit in('true', 'false'))
       check(withdrawal in('true', 'false'))
       );")
-  
 end
 
 def insert_into(connect, name_table, values)
   connect.execute("insert into #{name_table} 
-      (name, title_vklad, rate, minimum_currency, month, deposit, withdrawal)
+      (group_name, title_vklad, rate, minimum_currency, month, deposit, withdrawal)
       values
       (?, ?, ?, ?, ?, ?, ?);",
       values)
@@ -40,6 +39,7 @@ file.each do |k, v|
   
   v.each do |item|
     i = item.values
+    create_table(db, k)
 
     insert_into(db, k, i)
     puts i.inspect
