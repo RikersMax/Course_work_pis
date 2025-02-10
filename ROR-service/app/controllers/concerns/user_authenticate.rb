@@ -7,9 +7,12 @@ module UserAuthenticate
 
     def current_user
       if session[:user_id].present? then
-        redis_user = r_get_parse(session[:user_id])
+        
+        redis_user = r_connect.get(session[:user_id])
+
         if redis_user.present? then
-          @current_user = User.new(redis_user) #r_get_parse(session[:user_id])          
+          redis_user_parse = JSON.parse(redis_user).symbolize_keys
+          @current_user = User.new(redis_user_parse) #r_get_parse(session[:user_id])          
         else
           @current_user ||= User.find_by(remember_token_digest: session[:user_id])#session[:user_id]) #if session[:user_id].present?          
           session[:user_id] = @current_user.remember_me
