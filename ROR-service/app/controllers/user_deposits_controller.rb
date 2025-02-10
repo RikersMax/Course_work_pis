@@ -2,20 +2,20 @@ class UserDepositsController < ApplicationController
 
  
   def index
-    api_url = defolt_recuset[:root]
+    api_url = defolt_requset[:root]
     data = ApiClient.new.get_data(api_url)
     @all_deposits = data
   end
 
   def show
     url_params = params[:id]
-    api_url = defolt_recuset[url_params.to_sym]
+    api_url = defolt_requset[url_params.to_sym]
     data = ApiClient.new.get_data(api_url)
     @all_deposits = data
 
   end
 
-  def defolt_recuset
+  def defolt_requset
     api_request = {
       root: '/',
       api_version: "/api/versions",
