@@ -13,32 +13,33 @@ sber = SberBank.new
 t_bank = TBank.new
 
 get "/" do
-  arr = ['list base requiest']
-=begin  
-  if params.empty? then
-    banks_version = [
-      alfa.select_version,
-      sber.select_version,
-      t_bank.select_version
-    ]
-    return(banks_version.to_json)
-  else
-    BaseModule.select_version_from_params(params).to_json
-  end
-=end
-  return(arr.to_json)
+  redirect("/api/v1")
+end
+
+get "/api/v1" do
+   list_base_requiest = {
+    requiests: {
+      check_version_tables: '/api/v1/versions',
+      show_all_deposete: '/api/v1/all_deposits',
+      show_alfa_bank_deposete: '/api/v1/alfa',
+      show_sber_bank_deposete: '/api/v1/sber',
+      show_t_bank_deposete: '/api/v1/t-bank'
+    }
+   }
+
+  return(list_base_requiest.to_json)
 end
 
 get "/api/v1/versions" do 
   #http://127.0.0.1:4567/api/all?something = name_bank
 
+
   if params.empty? then
-    banks_version = [
-      alfa.select_version,
-      sber.select_version,
-      t_bank.select_version
-    ]
-    return(banks_version.to_json)
+
+    versions = {}
+    versions[:versions] = alfa.select_version.merge(sber.select_version, t_bank.select_version)
+
+    return(versions.to_json)
   else
     BaseModule.select_version_from_params(params).to_json
   end 
@@ -55,7 +56,7 @@ get "/api/v1/all_deposits" do
   }
 
   result[:bank_deposits] = bank_deposits
-  result.to_json
+  requiest(result.to_json)
 end
 
 get "/api/v1/alfa" do 
