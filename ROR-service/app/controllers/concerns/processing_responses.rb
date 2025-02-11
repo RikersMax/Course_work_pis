@@ -5,8 +5,8 @@ module ProcessingResponses
   class ApiClient
     require 'net/http'
     require 'json'
-
-    BASE_URL = 'http://172.20.0.10:4567' 
+    BASE_URL = 'http://127.0.0.1:4567' #dev
+    #BASE_URL = 'http://172.20.0.10:4567' #docker compose
 
     def get_data(url)
 
