@@ -124,8 +124,7 @@
 /* message */
 
 
-.message-container {
-	width: 100%;
+.message-container {	
 	background-color: #ff4d4d;
 	line-height: 2em;
 	padding: 0 1em;

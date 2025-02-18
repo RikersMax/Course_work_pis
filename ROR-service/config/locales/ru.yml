@@ -4,9 +4,17 @@ ru:
       sign_up: 'Регистрация'
       sign_in: 'Войти'
       exit: 'Выйти'
+
   nav_bar:
     links:
       1_link: 'Депозиты'
       2_link: 'Калькулятор'
+      
   name_page:
     page_1: 'page_1'
+
+  flash:
+    message:
+      need_regidster: 'Нужно зарегистрироваться'
+      successfully: 'Успешно'
+      error: 'Ошибка'

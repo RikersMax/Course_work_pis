@@ -82,7 +82,7 @@
 	
 	<div class="row-desc-link">
 		<% unless hid then %>
-			<%= link_to("Рассчитать", url ||= user_deposit_path("#{key_bank.to_s}:#{dep['id']}"))  %>
+			<%= link_to("Рассчитать", url ||= user_deposits_new_path("#{key_bank.to_s}:#{dep['id']}"))  %>
 		<% end %>		
 	</div>
 

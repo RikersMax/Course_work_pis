@@ -4,9 +4,17 @@ en:
       sign_up: 'Sign Up'
       sign_in: 'Sign In'
       exit: 'Exit'
+
   nav_bar:
     links:
       1_link: '1 link'
       2_link: '2 link'
+      
   name_page:
     page_1: 'page_1'
+
+  flash:
+    message:
+      need_regidster: 'need register'
+      successfully: 'Successfully'
+      error: 'Error'
