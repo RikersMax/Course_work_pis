@@ -1,3 +1,37 @@
 <% provide(:title_name, 'Депозиты') %>
 <% render_navbar  %>
-<%= @all_deposits  %>
+<%# @all_deposits['bank_deposits'].keys  %>
+
+
+<article class="main-container-service">
+	<section>	
+		<div class="header-page-container">
+			<strong class="header-page-name">Все депозиты</strong>
+		</div>
+	</section>	
+
+	<section class="container-service">
+		<% @all_deposits.keys.each do |key_bank| %>
+			<div class="service-card-name">
+				<span><%= key_bank  %></span>			
+			</div>
+			<% if @result then %>
+				<% @all_deposits[key_bank].each do |dep| %>
+					<div class="service-card-div">
+						<div class="service-card-desc">
+							<%= render(
+							partial: 'shared/info_deposit', 
+							locals: {
+								dep: dep, 
+								key_bank: 
+								key_bank, 
+								hid: false
+							}
+							)%>
+						</div>						
+					</div>
+				<% end %>
+			<% end %>
+		<% end %>
+	</section>
+</article>

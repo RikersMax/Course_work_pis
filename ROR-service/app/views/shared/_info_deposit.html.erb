@@ -1,0 +1,90 @@
+<div class="service-desc">							
+	<div class="row-desc">
+		<span>
+			id вклада
+		</span>
+		<span>
+			<%= dep['id']  %>										
+		</span>
+	</div>
+		
+	<div class="row-desc">
+		<span>
+			группа
+		</span>
+		<span>
+			<%= dep['group_name']  %>
+		</span>
+	</div>
+
+	<div class="row-desc">
+		<span>
+			название
+		</span>
+		<span>
+			
+			<%= dep['title_vklad'] %>
+		</span>
+	</div>
+
+	<div class="row-desc">
+		<span>
+			ставка
+		</span>
+		<span>
+			
+			<%= dep['rate'] %>			
+		</span>
+	</div>
+
+	<div class="row-desc">
+		<span>
+			Минимальная сумма
+		</span>
+		<span>
+			
+			<%= dep['minimum_currency']  %>
+		</span>
+	</div>
+
+	<div class="row-desc">
+		<span>
+			месяцев
+		</span>
+		<span>
+			
+			<% if dep['month']  == 999 then %>
+				Неограниченно
+			<% else %>
+				<%= dep['month'] %>
+			<% end %>
+
+		</span>
+	</div>
+
+	<div class="row-desc">
+		<span>
+			Пополнение
+		</span>
+		<span>
+			<%= dep['deposit']  %>
+		</span>
+	</div>
+
+	<div class="row-desc">
+		<span>
+			Снятие
+		</span>
+		<span>
+			<%= dep['withdrawal']  %>
+		</span>
+	</div>
+	
+	<div class="row-desc-link">
+		<% unless hid then %>
+			<%= link_to("Рассчитать", url ||= user_deposit_path("#{key_bank.to_s}:#{dep['id']}"))  %>
+		<% end %>		
+	</div>
+
+</div>
+	

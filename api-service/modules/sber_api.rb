@@ -6,9 +6,9 @@ class SberBank < BaseModule
   attr_reader :name_table
 
   def initialize
-    connect()
+    connect
     @name_table = 'Sber_bank'  
-    create_table()
-    init_version_table()
+    create_table
+    init_version_table
   end
 end

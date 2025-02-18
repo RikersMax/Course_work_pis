@@ -6,9 +6,7 @@ ru:
       exit: 'Выйти'
   nav_bar:
     links:
-      1_link: '1 ссылка'
-      2_link: '2 ссылка'
-      3_link: '3 ссылка'
-      4_link: '4 ссылка'
+      1_link: 'Депозиты'
+      2_link: 'Калькулятор'
   name_page:
     page_1: 'page_1'

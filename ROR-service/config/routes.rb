@@ -5,7 +5,7 @@ Rails.application.routes.draw do
  
 
   resources(:users, only: %i[new show create])
-  resources(:user_deposits, only: %i[index new show create])
+  resources(:user_deposits, only: %i[index new show ])
   resources(:session, only: %i[new create destroy])
 
   # Defines the root path route ("/")

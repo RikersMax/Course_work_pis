@@ -111,7 +111,7 @@
 
 .service-card-desc {	
 	background-color: #ff9999;
-	max-width: 90%;
+	min-width: 90%;
 }
 
 .service-desc {	
@@ -142,4 +142,19 @@
 	line-height: 3em;
 	background-color: #ff9999;
 	width: 90%;
+}
+
+.row-desc {
+	display: flex;
+	justify-content: space-between;
+	line-height: 1.5em;
+	background-color: white;
+	margin: 10px 0px 10px 0px;
+	padding: 0px 1em 0px 1em;
+	text-indent: 0px;
+}
+
+.row-desc-link {
+	display: flex;
+	justify-content: center;
 }

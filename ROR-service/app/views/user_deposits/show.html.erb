@@ -1,6 +1,91 @@
+
 <% provide(:title_name, 'Депозиты') %>
 <% render_navbar  %>
 
-<h1>UsersDeposit#show</h1>
-<p>Find me in app/views/users_deposit/show.html.erb</p>
-<%= @all_deposits  %>
+<h1>Users@depositosit#show</h1>
+<p>Find me in app/views/users_@depositosit/show.html.erb</p>
+<%= @deposit %>
+
+
+<article class="main-container-service">
+	<section>	
+		<div class="header-page-container">
+			<strong class="header-page-name">Депозит</strong>
+		</div>
+	</section>	
+
+	<section class="container-service">
+		<div class="service-card-name">
+				<span> банк </span>			
+			</div>
+		<div class="service-card-div">
+			<div class="service-card-desc">
+				<div class="service-desc">								
+					<%= render(partial: 'shared/info_deposit', locals: {url: '#', dep: @deposit, hid: true}) %>
+					<div class="service-desc">
+						<div class="row-desc">
+							<p>Минимальная сумма </p>
+							<%=  number_field_tag(
+							'summ-money', 
+							@deposit['minimum_currency'], 
+							min: @deposit['minimum_currency'],
+							step: '500'
+							) %>
+						</div>
+						<% if @deposit['month']==999 then %>
+						<div class="row-desc">
+							<p>Месяцев</p>
+							<%=  number_field_tag(
+							'summ-month', 
+							'1', 
+							max: @deposit['month']
+							) %>
+						</div>
+						<% end %>
+						<div class="row-desc-link">
+							<button onclick="calculateFn()" id='Calculate_btn', class='btn'>Рассчитать</button>
+						</div>
+
+						<div class="row-desc-link">
+							<input type="hidden" id='result_money' >
+						</div>
+
+						<div class="row-desc-link">
+
+							<a id='save_reslut' hidden>save</a>
+						</div>
+					</div>			
+				</div>
+			</div>
+		</div>
+	</section>
+</article>
+
+<script>
+	let months;
+	let rate = <%= @deposit['rate'] %>;
+	let reslut_input = document.getElementById('result_money');
+
+	function calculateFn(){
+		let month_choice = document.getElementById('summ-month');
+		let save_button = document.getElementById('save_reslut');
+
+		if (month_choice) {
+			months = Number(month_choice.value)
+		} else {
+			months = <%= @deposit['month'] %>;
+			console.log(months);
+		};
+
+		//количество денег
+		let input_summ_money = document.getElementById('summ-money');
+		let quantity_money = Number(input_summ_money.value);
+
+		let result = ((quantity_money * rate * (months * 30))/365)/100;
+
+		save_button.removeAttribute('hidden');
+
+		reslut_input.value = result.toFixed(2);
+		reslut_input.type = 'text';
+	};
+</script>
