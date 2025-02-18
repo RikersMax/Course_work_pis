@@ -1,6 +1,6 @@
 class UserDepositsController < ApplicationController
 
-  before_action(:require_authentication, only: 'create')
+  before_action(:require_authentication, only: %i[create show_all_deposit destroy])
 
   def index
     api_url = defolt_requset[:api_all_deposits]
@@ -30,8 +30,11 @@ class UserDepositsController < ApplicationController
     # name_bank_id = params[:id]
     # api_url = defolt_requset(name_bank_id)[:find_deposite]
     # data = ApiClient.new.get_data(api_url)
-
     # @deposit = data['deposit']
+  end
+
+  def show_all_deposit
+    @user_all_deposits = current_user.user_deposit
   end
 
   def create    
@@ -61,6 +64,14 @@ class UserDepositsController < ApplicationController
       redirect_to('/')
     end
     #debugger
+  end
+
+  def destroy
+    #debugger
+    user_deposit = UserDeposit.find_by(id: params[:id])
+    user_deposit.destroy
+    flash[:message] = t('flash.message.successfully')
+    redirect_to(user_all_deposits_path)
   end
 
   private

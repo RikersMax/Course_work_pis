@@ -19,7 +19,7 @@
 		<div class="nav-links">
 			<ul>
 				<li><%= link_to(t('nav_bar.links.1_link'), user_deposits_path ) %></li>
-				<li><%= link_to(t('nav_bar.links.2_link'),  url: '#') %></li>				
+				<li><%= link_to(t('nav_bar.links.2_link'),  url: '#') %></li>			
 			</ul>
 			
 		</div>
@@ -38,7 +38,12 @@
 						<li><%= link_to(t('user.drop_down_menu.exit'), 
 							session_path(current_user.id), 
 							data: { turbo_method: :delete }
-							) %></li>
+							) %>		
+						</li>
+						<hr style="width: 90%;">						
+						<li>
+							<%= link_to("Мои депозиты", user_all_deposits_path ) %>  
+						</li>
 						<hr style="width: 90%;">
 					</ul>
 				</div>

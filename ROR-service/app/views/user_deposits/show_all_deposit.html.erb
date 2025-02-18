@@ -1,0 +1,118 @@
+
+<% provide(:title_name, 'Мои Депозиты') %>
+<% render_navbar  %>
+<%# @user_all_deposits.inspect  %>
+
+<article class="main-container-service">
+	<section>	
+		<div class="header-page-container">
+			<strong class="header-page-name">Мои Депозиты</strong>
+		</div>
+	</section>
+
+	<section class="container-service">
+		<div class="service-card-name">
+			<span> банк </span>
+		</div>
+		<div class="service-card-div">
+		<div class="service-card-desc">
+			<% @user_all_deposits.each do |deposit| %>
+				<div class="service-desc">
+					<div class="row-desc">
+						<span>
+							id вклада
+						</span>
+						<span>
+							<%= deposit.id  %>										
+						</span>
+					</div>
+
+					<div class="row-desc">
+						<span>
+							название
+						</span>
+						<span>
+							
+							<%= deposit.deposit_title %>
+						</span>
+					</div>
+
+					<div class="row-desc">
+						<span>
+							ставка
+						</span>
+						<span>
+							
+							<%= deposit.rate %>			
+						</span>
+					</div>
+
+					<div class="row-desc">
+						<span>
+							Cумма
+						</span>
+						<span>
+							
+							<%= deposit.amount_money  %>
+						</span>
+					</div>
+
+					<div class="row-desc">
+						<span>
+							Дни
+						</span>
+						<span>
+														
+							<%= deposit.term_in_days %>
+						</span>
+					</div>
+
+					<div class="row-desc">
+						<span>
+							Пополнение
+						</span>
+						<span>
+							<%= deposit.deposit  %>
+						</span>
+					</div>
+
+					<div class="row-desc">
+						<span>
+							Снятие
+						</span>
+						<span>
+							<%= deposit.withdrawal  %>
+						</span>
+					</div>
+
+					<div class="row-desc">
+						<span>
+							Снятие
+						</span>
+						<span>
+							<%= deposit.deposit_start  %>
+						</span>
+					</div>
+
+					<div class="row-desc">
+						<span>
+							Снятие
+						</span>
+						<span>
+							<%= deposit.deposit_end  %>
+						</span>
+					</div>
+
+					<div class="row-desc-link">
+						<%= link_to("Удалить", "/user_deposits/#{deposit.id}", data: { turbo_method: :delete })  %>
+					</div>
+		
+					<div>
+						<hr style="width: 100%; margin-top: 1em ;">
+					</div>
+				</div>
+			<% end %>
+			</div>
+			</div>
+	</section>
+</article>
