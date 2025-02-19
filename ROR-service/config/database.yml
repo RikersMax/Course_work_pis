@@ -9,8 +9,7 @@ default: &default
   password: <%= ENV["PSQL_MY_CW_PASS"] %>
   database: <%= ENV["PIS_DATA_BASE"] %>
 
-  #host: db-ps
-  host: localhost
+  host: db-ps  
   port: 5432
   
 

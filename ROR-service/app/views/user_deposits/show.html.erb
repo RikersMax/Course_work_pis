@@ -1,3 +1,121 @@
 
 <% provide(:title_name, 'Депозиты') %>
 <% render_navbar  %>
+
+<style>
+    
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    input[type=number], select {
+        padding: 6px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        width: 100%;
+    }
+       
+    .result {
+        font-weight: bold;
+        margin-top: 25px;
+    }
+</style>
+
+
+<article class="main-container-service">
+	<section>	
+		<div class="header-page-container">
+			<strong class="header-page-name">Калькулятор</strong>
+		</div>
+	</section>
+
+	<section class="container-service">		
+
+		<div class="service-card-div">
+			<div class="service-card-desc">
+				<div class="service-desc">
+
+					<div id="deposit-form">
+					    <label for="amount">Сумма вклада:</label>
+					    <input type="number" id="amount" placeholder="Введите сумму вклада" required min="0" step="500">
+
+					    <label for="term">Срок вклада (в месяцах):</label>
+					    <select id="term">
+					        <option value="3">3 месяца</option>
+					        <option value="6">6 месяцев</option>
+					        <option value="9">9 месяцев</option>
+					        <option value="12">12 месяцев</option>
+					        <option value="18">18 месяцев</option>
+					        <option value="24">24 месяца</option>
+					    </select>
+
+					    <label for="rate">Процентная ставка (% годовых):</label>
+					    <input type="number" id="rate" placeholder="Введите процентную ставку" required min="0">
+					    <div class="row-desc-link">
+					    <button onclick="calculateFn();" class="btn">Рассчитать</button>
+					    </div>
+					</div>
+					<div>
+						<div class="row-desc-link">
+						<div id='save_reslut' hidden>
+						<span id='result_money'></span>
+						<%= form_with(url: user_deposits_path, data: {turbo: false}) do |f| %>
+								<%= f.hidden_field('form_deposit[name_bank]', value: 'calculate')  %>
+								<%= f.hidden_field('form_deposit[deposit_title]', value: 'My_deposit') %>
+								<%= f.hidden_field('form_deposit[rate]', value: '') %>
+								<%= f.hidden_field('form_deposit[amount_money]', value: '') %>
+								<%= f.hidden_field('form_deposit[month]', value: '') %>
+								<%= f.hidden_field('form_deposit[deposit]', value: false) %>
+								<%= f.hidden_field('form_deposit[withdrawal]', value: false) %>
+								<%= f.hidden_field('form_deposit[result_money]', value: '')  %>
+								<div class="row-desc-link">
+									<%= f.submit('Сохранить', class: 'btn') %>									
+								</div>
+							<% end %>
+						</div>
+						</div>
+					</div>
+					<p class="result"></p>
+				</div>
+			</div>
+		</div>
+
+	</section>
+</article>
+
+<script>
+
+		
+		var reslut_input = document.getElementById('result_money');
+
+		var input_month_form = document.getElementById('form_deposit[month]');
+		var input_money_form = document.getElementById('form_deposit[amount_money]');
+		var input_rate_form = document.getElementById('form_deposit[rate]');
+		var input_result_money_form = document.getElementById('form_deposit[result_money]');
+
+	function calculateFn(){
+
+    	var my_months = Number(document.getElementById('term').value);
+
+		var rate = Number(document.getElementById('rate').value);
+		let month_choice = document.getElementById('term');
+		let save_button = document.getElementById('save_reslut');
+
+		//количество денег
+		let input_summ_money = document.getElementById('amount');
+		let quantity_money = Number(input_summ_money.value);
+
+		let result = ((quantity_money * rate * (my_months * 30))/365)/100;
+
+		input_month_form.value = my_months;
+		input_money_form.value = quantity_money;
+		input_rate_form.value = rate;
+		input_result_money_form.value = result.toFixed(2);
+
+		save_button.removeAttribute('hidden');
+
+		reslut_input.innerHTML = result.toFixed(2) + '&#8381; Сумма после закрытия вклада';
+		reslut_input.type = 'text';
+	};
+</script>

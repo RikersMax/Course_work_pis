@@ -1,7 +1,6 @@
 
 <% provide(:title_name, 'Мои Депозиты') %>
 <% render_navbar  %>
-<%# @user_all_deposits.inspect  %>
 
 <article class="main-container-service">
 	<section>	
@@ -11,12 +10,13 @@
 	</section>
 
 	<section class="container-service">
-		<div class="service-card-name">
-			<span> банк </span>
-		</div>
+		
 		<div class="service-card-div">
 		<div class="service-card-desc">
 			<% @user_all_deposits.each do |deposit| %>
+				<div class="service-card-name">
+					<span> <%= deposit.name_bank  %> </span>
+				</div>
 				<div class="service-desc">
 					<div class="row-desc">
 						<span>
@@ -29,7 +29,7 @@
 
 					<div class="row-desc">
 						<span>
-							название
+							Название
 						</span>
 						<span>
 							
@@ -39,7 +39,7 @@
 
 					<div class="row-desc">
 						<span>
-							ставка
+							Ставка
 						</span>
 						<span>
 							
@@ -87,7 +87,7 @@
 
 					<div class="row-desc">
 						<span>
-							Снятие
+							Дата открытия
 						</span>
 						<span>
 							<%= deposit.deposit_start  %>
@@ -96,10 +96,19 @@
 
 					<div class="row-desc">
 						<span>
-							Снятие
+							Дата закрытия
 						</span>
 						<span>
 							<%= deposit.deposit_end  %>
+						</span>
+					</div>
+
+					<div class="row-desc">
+						<span>
+							 
+						</span>
+						<span>
+							<%= deposit.result_money  %>
 						</span>
 					</div>
 

@@ -1,7 +1,7 @@
 services:
 
     api-service:
-        image: pis-api-service:0.0.1
+        image: pis-api-service:0.0.3
         hostname: api-service
         build: 
             context: ./api-service
@@ -17,9 +17,8 @@ services:
                 aliases:
                     - api-service-alias
 
-
     db-service:
-        image: pis-db-ps:0.0.1
+        image: pis-db-ps:0.0.3
         hostname: db-ps
         build:
             context: ./db
@@ -32,15 +31,12 @@ services:
                 ipv4_address: 172.20.0.11
                 aliases:
                     - db-service-alias
-        volumes:
-            - ./db/data:/var/lib/postgresql/data
-
 
     ror-service:
-        image: pis-ror-service:0.0.1
+        image: pis-ror-service:0.0.3
         hostname: ror-service
-        volumes: 
-            - ./ROR-service:/rails
+        #volumes: 
+        #    - ./ROR-service:/rails
         build:
             context: ./ROR-service
             dockerfile: Dockerfile.service.yaml

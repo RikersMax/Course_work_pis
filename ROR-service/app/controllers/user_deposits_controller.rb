@@ -1,6 +1,6 @@
 class UserDepositsController < ApplicationController
 
-  before_action(:require_authentication, only: %i[create show_all_deposit destroy])
+  before_action(:require_authentication, only: %i[create user_all_deposits destroy show])
 
   def index
     api_url = defolt_requset[:api_all_deposits]
@@ -22,7 +22,9 @@ class UserDepositsController < ApplicationController
     api_url = defolt_requset(name_bank_id)[:find_deposite]
     data = ApiClient.new.get_data(api_url)
 
-    @deposit = data['deposit'] 
+    @deposit = data['deposit']
+    @deposit_bank = data['bank_name'] 
+    #@deposit_info = data
   end
 
   def show
@@ -33,7 +35,7 @@ class UserDepositsController < ApplicationController
     # @deposit = data['deposit']
   end
 
-  def show_all_deposit
+  def user_all_deposits
     @user_all_deposits = current_user.user_deposit
   end
 
@@ -77,7 +79,16 @@ class UserDepositsController < ApplicationController
   private
 
   def params_for_create
-    params.require(:form_deposit).permit(:deposit_title, :rate, :amount_money, :month, :deposit, :withdrawal)
+    params.require(:form_deposit).permit(
+      :deposit_title, 
+      :rate, 
+      :amount_money, 
+      :month, 
+      :deposit, 
+      :withdrawal, 
+      :name_bank,
+      :result_money
+      )
   end
 
 end

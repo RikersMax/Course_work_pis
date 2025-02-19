@@ -11,7 +11,7 @@
 
 	<section class="container-service">
 		<div class="service-card-name">
-			<span> банк </span>			
+			<span> <%= @deposit_bank  %> </span>			
 		</div>
 		<div class="service-card-div">
 			<div class="service-card-desc">
@@ -49,12 +49,14 @@
 							<div id='save_reslut' hidden>							
 							<span id='result_money'></span>
 							<%= form_with(url: user_deposits_path, data: {turbo: false}) do |f| %>
+								<%= f.hidden_field('form_deposit[name_bank]', value: @deposit_bank)  %>
 								<%= f.hidden_field('form_deposit[deposit_title]', value: @deposit['title_vklad']) %>
 								<%= f.hidden_field('form_deposit[rate]', value: @deposit['rate']) %>
 								<%= f.hidden_field('form_deposit[amount_money]', value: '') %>
 								<%= f.hidden_field('form_deposit[month]', value: '') %>
 								<%= f.hidden_field('form_deposit[deposit]', value: @deposit['deposit']) %>
 								<%= f.hidden_field('form_deposit[withdrawal]', value: @deposit['withdrawal']) %>
+								<%= f.hidden_field('form_deposit[result_money]', value: '')  %>
 								<div class="row-desc-link">
 									<%= f.submit('Сохранить', class: 'btn') %>									
 								</div>
@@ -77,6 +79,8 @@
 
 		var input_month_form = document.getElementById('form_deposit[month]');
 		var input_money_form = document.getElementById('form_deposit[amount_money]');
+		var input_result_money_form = document.getElementById('form_deposit[result_money]');
+
 		
 	function calculateFn(){
 
@@ -98,6 +102,8 @@
 
 		input_month_form.value = my_months;
 		input_money_form.value = quantity_money;
+		input_result_money_form.value = result.toFixed(2);
+
 		save_button.removeAttribute('hidden');
 
 		reslut_input.innerHTML = result.toFixed(2) + '&#8381; Сумма после закрытия вклада';
