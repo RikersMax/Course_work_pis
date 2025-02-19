@@ -9,7 +9,7 @@
 /ROR-service/tmp/sockets/*
 
 /ROR-service/db/schema.rb
-/ROR-service/config/master.key
+
 
 dump.rdb 
 ideas.txt
