@@ -79,7 +79,8 @@ end
 
 get "/api/v1/find/:id" do
   #Alfa_bank:1
-  test_params = params[:id].split(':')
-  result = BaseModule.find_by_bank_and_id(test_params[0], test_params[1])
-  {deposit: result}.to_json
+  bank_and_id = params[:id].split(':')
+  result = BaseModule.find_by_bank_and_id(bank_and_id[0], bank_and_id[1])
+  result_request = {deposit: result, bank_name: bank_and_id[0]}
+  return(result_request.to_json)
 end
